@@ -62,3 +62,37 @@
   - After token generation, use practice id, endpoint URL, accessToken to function: `fetchSlotData`.
 - All params have separate format, read format from docs.
 - Per API call, Cerner will provide only 100 appointments, so loop the API in `fetchSlotData` for pagination type data fetching.
+
+### Additional Functionality
+
+#### Patient Search API
+- **Endpoint:** url_end_point+family=&given=&gender
+- Get patient details by calling this API.
+
+#### Booking Appointment
+- If first time user is N, book appointment using Appointment URL.
+
+#### Check and Store Patient Details
+- Check if the patient exists or not and store in the database.
+
+#### Check and Store Appointment Details
+- Check if the appointment exists or not and store in the database.
+
+#### Get Invite Details
+- Go to get invite details after booking the appointment.
+
+#### Cron Job for Storing Insurance
+- Cron job to store insurance details.
+
+#### Update Reschedule or Cancel
+- Update the rest in function: `cerner_update_data`.
+
+#### File Path for Insurance Details
+- File Path: `pushemr/yositocerner/src/v1/model/yosicernerTable`
+- Fetching all insurance details of the patient.
+- One appointment has only one encounter so create insurance function only.
+
+#### Function for Adding Insurance Master List
+- File Path: `applcation-api/registration/module/Practice/src/v1/module/Practice/src/v1/Model/PracticeTable.php`
+- Function Name: `addInsuranceMasterList`
+- Store insurance details in the database manually in insurance_master table.
